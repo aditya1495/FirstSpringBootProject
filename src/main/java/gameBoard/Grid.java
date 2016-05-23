@@ -1,4 +1,8 @@
-package hello;
+package gameBoard;
+
+import misc.Move;
+import misc.Position;
+
 public class Grid {
 
     private int rowSize, colSize;
@@ -35,14 +39,14 @@ public class Grid {
     }
 
     public Move isValid(Position pos) {
-        int nx = pos.X;
-        int ny = pos.Y;
+        int nx = pos.getX();
+        int ny = pos.getY();
         if (nx < 0 || ny < 0 || nx >= this.rowSize || ny >= this.colSize) return Move.OUTOFBOUND;
         if (board[nx][ny].isBlocked) return Move.HITWALL;
         return Move.VALID;
     }
 
     public boolean hasReached(Position curPos) {
-        return (curPos.X == destination.X && curPos.Y == destination.Y);
+        return (curPos.getX() == destination.getX() && curPos.getY() == destination.getY());
     }
 }

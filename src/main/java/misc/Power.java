@@ -1,6 +1,6 @@
-package hello;
+package misc;
 
-enum Power {
+public enum Power {
     NORMAL(1, 10), GOOD(2, 11), BEST(3, 12);
 
     private int health, jump;

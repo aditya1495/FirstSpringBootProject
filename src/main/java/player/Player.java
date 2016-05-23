@@ -1,14 +1,19 @@
-package hello;
+package player;
+
+import misc.Direction;
+import misc.Position;
+import misc.Power;
+
 public class Player {
 
     private int[] dx, dy;
     private int health;
     public Position position;
 
-    public Player(Power myPower) {
+    public Player(Power power) {
         this.position = new Position(0, 0);
-        this.health = myPower.getHealth();
-        int jump = myPower.getJump();
+        this.health = power.getHealth();
+        int jump = power.getJump();
         this.dx = new int[]{-jump, jump, 0, 0};
         this.dy = new int[]{0, 0, jump, -jump};
     }
@@ -34,8 +39,8 @@ public class Player {
                 dVec = 3;
                 break;
         }
-        res.X = dx[dVec] + this.position.X;
-        res.Y = dy[dVec] + this.position.Y;
+        res.setX(dx[dVec] + this.position.getX());
+        res.setY(dy[dVec] + this.position.getY());
         return res;
     }
 
